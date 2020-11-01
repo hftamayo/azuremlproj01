@@ -1,0 +1,6 @@
+0. subir los notebooks desde la interface de ml
+
+1. en el mlstudio ir a computer y luego crear una computer instancia tipo standard d2v2 exercise2-htamayo (leccion 2, ejercicio 6)
+
+2. en la nueva maquina dar click en jupyter y buscar en la carpeta los libros que subi
+
