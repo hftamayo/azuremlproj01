@@ -13,5 +13,16 @@ workspace = Workspace(subscription_id, resource_group, workspace_name)
 dataset = Dataset.get_by_name(workspace, name='Bank-marketing')
 dataset.to_pandas_dataframe()
 
-3. accesando por medio del sdk con 
-TabularDatasetFactory:
+3. accesando por medio del sdk con TabularDatasetFactory:
+#tomado de: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb
+"""
+data_urls = ['https://data4mldemo6150520719.blob.core.windows.net/demo/mnist-fashion']
+fashion_ds = Dataset.File.from_files(data_urls)
+
+# list the files referenced by fashion_ds
+fashion_ds.to_path()
+"""
+
+#codigo a probar:
+data_urls = ['https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv']
+ds = Dataset.File.from_files(data_urls)
