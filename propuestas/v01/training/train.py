@@ -36,6 +36,7 @@ def clean_data(data):
     x_df["poutcome"] = x_df.poutcome.apply(lambda s: 1 if s == "success" else 0)
 
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
+    return y_df
 #/htamayo
 
 # TODO: Create TabularDataset using TabularDatasetFactory
@@ -50,7 +51,9 @@ web_path = [
    ]
 
 ds = TabularDatasetFactory.from_delimited_files(path=web_path, separator=',')   
-x, y = clean_data(ds)
+#to avoid too many values to unpack error I decided to separate the vars
+x = clean_data(ds)
+y = clean_data(ds)
 #/v1
 
 # TODO: Split data into train and test sets.
@@ -70,9 +73,9 @@ def main():
     run.log("Regularization Strength:", np.float(args.C))
     run.log("Max iterations:", np.int(args.max_iter))
 
-    model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
+    model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(xds_train, yds_train)
 
-    accuracy = model.score(x_test, y_test)
+    accuracy = model.score(xds_test, yds_test)
     run.log("Accuracy", np.float(accuracy))
 
 if __name__ == '__main__':
