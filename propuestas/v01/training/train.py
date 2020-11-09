@@ -10,6 +10,23 @@ import pandas as pd
 from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
 
+# TODO: Create TabularDataset using TabularDatasetFactory
+# Data is located at:
+# "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
+
+### YOUR CODE HERE ###
+#htamayo
+#v1
+web_path = [
+       'https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv'
+   ]
+
+ds = TabularDatasetFactory.from_delimited_files(path=web_path, separator=',')   
+#/v1
+
+run = Run.get_context()
+
+
 #htamayo
 def clean_data(data):
     # Dict for cleaning data
@@ -36,30 +53,10 @@ def clean_data(data):
     x_df["poutcome"] = x_df.poutcome.apply(lambda s: 1 if s == "success" else 0)
 
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
-    return y_df
+    #the idea is to avoid a given error called NoneType object
+    return x_df, y_df
 #/htamayo
 
-# TODO: Create TabularDataset using TabularDatasetFactory
-# Data is located at:
-# "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
-
-### YOUR CODE HERE ###
-#htamayo
-#v1
-web_path = [
-       'https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv'
-   ]
-
-ds = TabularDatasetFactory.from_delimited_files(path=web_path, separator=',')   
-#to avoid too many values to unpack error I decided to separate the vars
-x = clean_data(ds)
-y = clean_data(ds)
-#/v1
-
-# TODO: Split data into train and test sets.
-### YOUR CODE HERE ###a
-xds_train, xds_test, yds_train, yds_test = train_test_split(x, y, test_size = 0.3, random_state = 0)
-run = Run.get_context()
 
 def main():
     # Add arguments to script
@@ -72,6 +69,9 @@ def main():
 
     run.log("Regularization Strength:", np.float(args.C))
     run.log("Max iterations:", np.int(args.max_iter))
+    
+    x, y = clean_data(ds)
+    xds_train, xds_test, yds_train, yds_test = train_test_split(x, y, test_size = 0.3, random_state = 0)
 
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(xds_train, yds_train)
 
