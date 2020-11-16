@@ -1,0 +1,46 @@
+best_aml_marketing_model = aml_marketing_run.get_output()
+print(best_aml_marketing_model)
+best_aml_marketing_model.register_model(model_name='automl_marketing_bmodel', model_path='amlmk_bmodel.pkl')
+
+(Run(Experiment: udacity-automlproject,
+Id: AutoML_6645e50a-7218-4449-9d37-359a62603ebc_48,
+Type: azureml.scriptrun,
+Status: Completed), PipelineWithYTransformations(Pipeline={'memory': None,
+                                       'steps': [('datatransformer',
+                                                  DataTransformer(enable_dnn=None,
+                                                                  enable_feature_sweeping=None,
+                                                                  feature_sweeping_config=None,
+                                                                  feature_sweeping_timeout=None,
+                                                                  featurization_config=None,
+                                                                  force_text_dnn=None,
+                                                                  is_cross_validation=None,
+                                                                  is_onnx_compatible=None,
+                                                                  logger=None,
+                                                                  observer=None,
+                                                                  task=None,
+                                                                  working_dir=None))...
+                                                                                                                                   random_state=None,
+                                                                                                                                   tol=0.001))],
+                                                                                                      verbose=False))],
+                                                                                flatten_transform=None,
+                                                                                weights=[0.14285714285714285,
+                                                                                         0.14285714285714285,
+                                                                                         0.07142857142857142,
+                                                                                         0.07142857142857142,
+                                                                                         0.14285714285714285,
+                                                                                         0.07142857142857142,
+                                                                                         0.14285714285714285,
+                                                                                         0.07142857142857142,
+                                                                                         0.07142857142857142,
+                                                                                         0.07142857142857142]))],
+                                       'verbose': False},
+                             y_transformer={},
+                             y_transformer_name='LabelEncoder'))
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-14-f43c18de385d> in <module>
+      4 best_aml_marketing_model = aml_marketing_run.get_output()
+      5 print(best_aml_marketing_model)
+----> 6 best_aml_marketing_model.register_model(model_name='automl_marketing_bmodel', model_path='amlmk_bmodel.pkl')
+
+AttributeError: 'tuple' object has no attribute 'register_model'
