@@ -36,8 +36,12 @@ For acqurate results is a good option to set up an early stopping policy, this i
 
 policy = BanditPolicy(evaluation_interval=2, slack_factor=0.1)
 
+![hyperdrive_results.png](./images/hyperdrive_results.png?raw=true "Hyperdrive Experiment result")
+
 ## AutoML
 AutoML is a powerful feature of Machine Learning Studio, comparing with Hyperdrive, the capability to test with different models in almost the half of time is simply outstanding, on each model we can obtain very detailed metrics like the next ones:
+
+![automl_models_tested.png](./images/automl_models_tested.png?raw=true "AutoML Models Tested")
 
 ![automl_results.png](./images/automl_results.png?raw=true "AutoML results part 1")
 
