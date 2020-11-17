@@ -32,20 +32,21 @@ The best performing model was a 0.91836 using VotingEnsemble algorithm, this one
         )
 
 **How to choose an early stopping policy**
-    For acqurate results is a good option to set up an early stopping policy, this is parameter of tolerance in our HyperDriveConfig, the idea is to stop unefficient runs which won't reach improving results, then the compute resources will be available for the next experiments. This is an example of how to set up a policy:
-    policy = BanditPolicy(evaluation_interval=2, slack_factor=0.1)
+For acqurate results is a good option to set up an early stopping policy, this is parameter of tolerance in our HyperDriveConfig, the idea is to stop unefficient runs which won't reach improving results, then the compute resources will be available for the next experiments. This is an example of how to set up a policy:
+
+policy = BanditPolicy(evaluation_interval=2, slack_factor=0.1)
 
 ## AutoML
-    AutoML is a powerful feature of Machine Learning Studio, comparing with Hyperdrive, the capability to test with different models in almost the half of time is simply outstanding, on each model we can obtain very detailed metrics like the next ones:
+AutoML is a powerful feature of Machine Learning Studio, comparing with Hyperdrive, the capability to test with different models in almost the half of time is simply outstanding, on each model we can obtain very detailed metrics like the next ones:
 
 ## Pipeline comparison
-    The best result obtained by HyperDrive Experiment was 0.9150227617602428, the experiment based on AutoML was 0.91836 using VotinEnsemble as the best algorithm, in quantitative terms both results are practically the same but the AutoML experiment is more accurate because the value selected was the best one between a series of models tested. Using HyperDrive to test different models will be more dificult because each requires specific pipeline parameters.
+The best result obtained by HyperDrive Experiment was 0.9150227617602428, the experiment based on AutoML was 0.91836 using VotinEnsemble as the best algorithm, in quantitative terms both results are practically the same but the AutoML experiment is more accurate because the value selected was the best one between a series of models tested. Using HyperDrive to test different models will be more dificult because each requires specific pipeline parameters.
 
 ## Future work
-    In particular, I would like to try different models to compare the results, I would like to try the Area Under the Curve metric -even though I'm not sure whether it fits with this dataset, however, it would be interesting to contrast a different approach of analysis.
+In particular, I would like to try different models to compare the results, I would like to try the Area Under the Curve metric -even though I'm not sure whether it fits with this dataset, however, it would be interesting to contrast a different approach of analysis.
 
-    The selection of the column as the parameter for “label_column_name” may be another area of improvement, in the exercise this column is already given but it won't on a different dataset, it would be nice to apply more criterias on the selection of the appropiate column.
+The selection of the column as the parameter for “label_column_name” may be another area of improvement, in the exercise this column is already given but it won't on a different dataset, it would be nice to apply more criterias on the selection of the appropiate column.
 
 ## Proof of cluster clean up
-    Once the experiments are finished the next line delete the cluster which is not necessary anymore:
-    aml_compute.delete()
+Once the experiments are finished the next line delete the cluster which is not necessary anymore:
+aml_compute.delete()
