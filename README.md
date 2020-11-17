@@ -15,14 +15,14 @@ The main approach is to design and to execute two results using the same dataset
 The best performing model was a 0.91836 using VotingEnsemble algorithm, this one was calculated using the autoML Experiment.
 
 ## Scikit-learn Pipeline
-###### **Pipeline Technical details**
+###### **1) Pipeline Technical details**
 1) Architecture: Virtual Machine General Purpose CPU Cluster Compute D-Series V2
 2) Data: CSV Format, 21 columns, 32,950 data rows. The is loaded using a TabularDatasetFactory class,  to acqurate the result the is cleaned using the function “clean_data” which is part of the script train.py
 3) Classification algorithm:  We use a Scikit-learn Logistic Regression Model with a parameter sampler
 4) Hyperparameters: “C” which is the regularization parameter, “max-iter” which define the maximum number of iterations allowed
 
 
-###### **How to choose a parameter sampler**
+###### **2) How to choose a parameter sampler**
 One of the objective is to obtain different results, in that order we need to optimize the use of the resources, such processing and compute time consumption, that's why one of the best option is to use a RandomParameterSampling class just like in the above example:
     ps = RandomParameterSampling(
         {
@@ -31,7 +31,7 @@ One of the objective is to obtain different results, in that order we need to op
         }
     )
 
-###### **How to choose an early stopping policy**
+###### **3) How to choose an early stopping policy**
 For acqurate results is a good option to set up an early stopping policy, this is parameter of tolerance in our HyperDriveConfig, the idea is to stop unefficient runs which won't reach improving results, then the compute resources will be available for the next experiments. This is an example of how to set up a policy:
 
 policy = BanditPolicy(evaluation_interval=2, slack_factor=0.1)
