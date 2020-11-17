@@ -6,13 +6,13 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary of the problem statement
-##1) Summary
+######1) Summary
     Based on a dataset provided which contains customer's information such as age, marital status, education, current loans, housing between others, we seek to predict whether the customers may be interested to take products offered to them accross marketing campaigns.
     
-##2) How the problem was solved
+######2) How the problem was solved
     The main approach is to design and to execute two results using the same dataset; the first one will be based on the optimization of hyperparameters using a tool on Microsoft Azure ML Studio called HyperDrive, the second one will be run using MIcrosoft Azure AutoML approach; at the end the analyst may compare both results as well as their metrics to take the best decision.
 
-    The best performing model was a 0.91836 using VotingEnsemble algorithm, this one was calculated using the autoML Experiment.
+The best performing model was a 0.91836 using VotingEnsemble algorithm, this one was calculated using the autoML Experiment.
 
 ## Scikit-learn Pipeline
 **Pipeline Technical details**
