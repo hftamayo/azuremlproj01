@@ -39,6 +39,10 @@ policy = BanditPolicy(evaluation_interval=2, slack_factor=0.1)
 ## AutoML
 AutoML is a powerful feature of Machine Learning Studio, comparing with Hyperdrive, the capability to test with different models in almost the half of time is simply outstanding, on each model we can obtain very detailed metrics like the next ones:
 
+![automl_results.png](./images/automl_results.png?raw=true "AutoML results part 1")
+
+![automl_results2.png](./images/automl_results2.png?raw=true "AutoML results part 2")
+
 ## Pipeline comparison
 The best result obtained by HyperDrive Experiment was 0.9150227617602428, the experiment based on AutoML was 0.91836 using VotinEnsemble as the best algorithm, in quantitative terms both results are practically the same but the AutoML experiment is more accurate because the value selected was the best one between a series of models tested. Using HyperDrive to test different models will be more dificult because each requires specific pipeline parameters.
 
