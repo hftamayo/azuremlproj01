@@ -1,0 +1,39 @@
+---------------------------------------------------------------------------
+OnnxConvertException                      Traceback (most recent call last)
+<ipython-input-9-1a98dce6ad6d> in <module>
+      5 
+      6 from azureml.automl.runtime.onnx_convert import OnnxConverter
+----> 7 best_aml_marketing_model, onnx_model= aml_marketing_run.get_output(return_onnx_model=True)
+      8 OnnxConverter.save_onnx_model(onnx_model, "./automl_model.onnx")
+
+/anaconda/envs/azureml_py36/lib/python3.6/site-packages/azureml/train/automl/run.py in get_output(self, iteration, metric, return_onnx_model, return_split_onnx_model, **kwargs)
+    689                     onnx_compatible=return_onnx_model,
+    690                     split_onnx_model_name=return_split_onnx_model,
+--> 691                     activity_name=automl_shared_constants.TelemetryConstants.GET_OUTPUT
+    692                 )
+    693 
+
+/anaconda/envs/azureml_py36/lib/python3.6/site-packages/azureml/train/automl/run.py in _get_best_child_run(self, iteration, metric, onnx_compatible, split_onnx_model_name, activity_name)
+    602                         raise OnnxConvertException._with_error(
+    603                             AzureMLError.create(
+--> 604                                 OnnxNotEnabled, target="onnx_compatible")
+    605                         )
+    606                     if split_onnx_model_name and not automl_settings.enable_split_onnx_featurizer_estimator_models:
+
+OnnxConvertException: OnnxConvertException:
+	Message: Requested an ONNX compatible model but the run has ONNX compatibility disabled.
+	InnerException: None
+	ErrorResponse 
+{
+    "error": {
+        "code": "UserError",
+        "message": "Requested an ONNX compatible model but the run has ONNX compatibility disabled.",
+        "target": "onnx_compatible",
+        "inner_error": {
+            "code": "BadArgument",
+            "inner_error": {
+                "code": "ArgumentInvalid"
+            }
+        }
+    }
+}
