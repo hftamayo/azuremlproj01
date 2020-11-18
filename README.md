@@ -62,5 +62,5 @@ aml_compute.delete()
 
 ## Additional Resources
 ###### Diagram of the pipeline Architecture
-![diagram_exer01.png](./images/diagram_exer01.png?raw=true Diagram of the pipeline architecture")
+![diagram_exer01.png](./images/diagram_exer01.png?raw=true "Diagram of the pipeline architecture")
 
