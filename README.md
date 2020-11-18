@@ -59,3 +59,8 @@ The selection of the column as the parameter for “label_column_name” may be 
 Once the experiments are finished the next line delete the cluster which is not necessary anymore:
 aml_compute.delete()
 ![ccluster_delete.png](./images/ccluster_delete.png?raw=true "Computer Cluster deleted")
+
+## Additional Resources
+###### Diagram of the pipeline Architecture
+![diagram_exer01.png](./images/diagram_exer01.png?raw=true Diagram of the pipeline architecture")
+
